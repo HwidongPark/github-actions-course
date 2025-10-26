@@ -6,9 +6,9 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: 04-using-actions/react-app
+    # defaults:
+    #   run:
+    #     working-directory: 04-using-actions/react-app
     steps:
       - name: Parsing Folder Before Checkout
         run: ls
@@ -36,9 +36,10 @@ jobs:
         
         # run의 명령어를 정의한 working-directory에서 실행되도록 함. (물론 그냥 cd로 이동해서 명령어 실행해도 같은 효과임)
         # default로 정의가능(위 코드 참고)
-        # working-directory: 04-using-actions/react-app
-      
+        working-directory: 04-using-actions/react-app
+        
       - name: Run Unit Test
+        working-directory: 04-using-actions/react-app
         run: |
           npm run test
 
