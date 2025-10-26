@@ -3,12 +3,12 @@ on:
   push:
       branches:
         - main
-  # - workflow_dispatch
+  workflow_dispatch:
   # - pull_request:
   #     branches:
   #       - main
-  schedule:
-    - cron: '*/1 * * * *'
+  # schedule:
+  #   - cron: '*/1 * * * *'
 jobs:
     echo:
       runs-on: ubuntu-latest
