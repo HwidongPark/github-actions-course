@@ -1,0 +1,25 @@
+name: 04 - Using Actions
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Before Checkout and Check Folder structure
+        run: ls
+
+      # 0. Checkout the code from the repository
+      # workflow가 repository내에 정의되었더라도, default로 repository code는 workflow에서 활용할 수 없음..
+      # 따라서, checkout action을 사용하여 repository code를 current working directory로 가져와야 함
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Parsing Folder
+        run: ls
+
+      # 1. Install dependencies of our react application
+      # 2. Execute automated tests
+
+        
