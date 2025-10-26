@@ -32,7 +32,7 @@ jobs:
           npm ci
         
         # run의 명령어를 정의한 working-directory에서 실행되도록 함. (물론 그냥 cd로 이동해서 명령어 실행해도 같은 효과임)
-        working-directory: ./04-using-actions
+        working-directory: 04-using-actions/react-app
 
 
 
