@@ -7,12 +7,12 @@ on:
   # - pull_request:
   #     branches:
   #       - main
-  # schedule:
-  #   - cron: '*/1 * * * *'
+  schedule:
+    - cron: '*/1 * * * *'
 jobs:
     echo:
       runs-on: ubuntu-latest
       steps:
         - name: Echo
           run: |
-            echo "Event name ${{github.event_name}}"
+            echo "Event name: ${{github.event_name}}"
