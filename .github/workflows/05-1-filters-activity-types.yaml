@@ -1,0 +1,15 @@
+name: 05 - 1 Filters Activity Types
+on:
+  pull_request:
+    types: [opened, synchronize]
+    branches:
+      - main
+
+jobs:
+  echo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Echo
+        run: |
+          echo "Running whenever PR is opened or synchronized AND base branch is main: ${{ github.event.pull_request.base.ref }}, PR title: ${{ github.event.pull_request.title }}, PR body: ${{ github.event.pull_request.body }}"
+  
