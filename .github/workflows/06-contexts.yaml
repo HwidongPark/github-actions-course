@@ -4,6 +4,7 @@ on:
   push:
   workflow_dispatch:
 
+
 jobs:
   echo-data:
     runs-on: ubuntu-latest
@@ -16,8 +17,8 @@ jobs:
           echo "Repository(워크플로우가 실행된 리포지토리): ${{github.repository}}"
           echo "Actor(워크플로우를 트리거한 사용자): ${{github.actor}}"
           echo "Workflow(워크플로우의 이름): ${{github.workflow}}"
-          echo: "Run ID(워크플로우 실행의 고유 식별자): ${{github.run_id}}"
-          echo: "Run number(워크플로우 실행의 고유 번호): ${{github.run_number}} 이게 무슨말?"
+          echo "Run ID(워크플로우 실행의 고유 식별자): ${{github.run_id}}"
+          echo "Run number(워크플로우 실행의 고유 번호): ${{github.run_number}}"
       
       - name: Retrieve Variables
         run: |
