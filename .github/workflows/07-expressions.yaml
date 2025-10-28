@@ -15,8 +15,12 @@ jobs:
   echo:
     runs-on: ubuntu-latest
     steps:
-      - name: Display Information
-        if: ${{ inputs.debug == true }}
+      - name: "[debug] Print start-up"
+        # 방법1.
+        # if: ${{ inputs.debug == true }}
+
+        # 방법2.
+        # if: ${{ inputs.debug }}
         run: |
           echo "Debug mode is enabled"
           echo "Event name that triggered the workflow: ${{ github.event_name }}"
