@@ -1,0 +1,25 @@
+name: 07 - Using Expressions
+run-name: 07 - Using Expression | DEBUG - ${{ inputs.debug == true && 'ON' || 'OFF' }}
+
+on:
+  push:
+  workflow_dispatch:
+    inputs:
+      debug:
+        type: boolean
+        default: false
+        description: "Enable debug mode"
+
+
+jobs:
+  echo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Display Information
+        if: ${{ inputs.debug == true }}
+        run: |
+          echo "Debug mode is enabled"
+          echo "Event name that triggered the workflow: ${{ github.event_name }}"
+          echo "ref(branch name): ${{ github.ref_name}}"
+          echo "sha(commit hash): ${{ github.sha }}"
+          echo "runner os: ${{ runner.os }}"
