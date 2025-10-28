@@ -1,8 +1,13 @@
 name: 06 - Contexts
-run-name: ""
+run-name: 06 - Contexts | DEBUG - ${{ inputs.debug }}
 on:
   push:
   workflow_dispatch:
+    inputs:
+      debug:
+        type: boolean
+        default: false
+        description: "Enable debug mode"
 
 
 jobs:
@@ -18,7 +23,7 @@ jobs:
           echo "Actor(워크플로우를 트리거한 사용자): ${{github.actor}}"
           echo "Workflow(워크플로우의 이름): ${{github.workflow}}"
           echo "Run ID(워크플로우 실행의 고유 식별자): ${{github.run_id}}"
-          echo "Run number(워크플로우 실행의 고유 번호): ${{github.run_number}}"
+          echo "Run number(워크플로우 실행의 고유 번호. 이 Workflow를 몇 번 실행했는지 횟수): ${{github.run_number}}"
       
       - name: Retrieve Variables
         run: |
