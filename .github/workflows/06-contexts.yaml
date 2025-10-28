@@ -6,13 +6,19 @@ on:
     inputs:
       debug:
         type: boolean
-        default: false
+        default: true
         description: "Enable debug mode"
 
+env:
+  MY_WORKFLOW_VAR: 'workflow'
+  MY_OVERWRITTEN_VAR: 'workflow'
 
 jobs:
   echo-data:
     runs-on: ubuntu-latest
+    env:
+      MY_JOB_VAR: 'job'
+      MY_OVERWRITTEN_VAR: 'job'
     steps:
       - name: Display Information
         run: |
@@ -28,5 +34,13 @@ jobs:
       - name: Retrieve Variables
         run: |
           echo "MY_VAR(repository의 variable로 내가 설정한 커스텀 변수): ${{vars.MY_VAR}}"
+      
+      - name: Pring Env Variables
+        env:
+          MY_OVERWRITTEN_VAR: 'step'
+        run: |
+          echo "workflow env: ${{ env.MY_WORKFLOW_VAR }}"
+          echo "Overwritten env: ${{ env.MY_OVERWRITTEN_VAR }}"
+
       
           
