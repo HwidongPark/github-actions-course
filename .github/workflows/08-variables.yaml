@@ -30,17 +30,28 @@ jobs:
           OVERWRITTEN: I have been overwritten at the step level
         run: |
           echo "Overwritten: ${{ env.OVERWRITTEN }}"
+  
   echo2:
     runs-on: ubuntu-latest
     steps:
       - name: Print Env Variables
         run: |
           echo "repository var: ${{ vars.REPOSITORY_VAR }}"
-          echo "environment var: ${{ vars.TARGET_VAR }}"
+
+  echo3:
+    runs-on: ubuntu-latest
+    environment: prod
+    steps:
+      - name: Print Prod Environment Variables
+        run: |
+          echo "repository var: ${{ vars.REPOSITORY_VAR }}"
+          echo "Environment var: ${{ vars.TARGET_VAR }}"
 
   echo-undefined:
     runs-on: ubuntu-latest
     steps:
       - name: Print Undefined Variables
         run: |
-          echo "Undefined var with default: ${{ env.UNDEFINED_VAR_WITH_DEFAULT }}"
+          echo "repository var: ${{ env.UNDEFINED_VAR_WITH_DEFAULT }}"
+          echo "repository var: ${{ vars.REPOSITORY_VAR }}"
+          echo "TEST WHAT HAPPENS IF IT IS ACTUALLY UNDEFINED: ${{ vars.TEST_UNDEFINED_VAR}}"
