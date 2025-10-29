@@ -8,9 +8,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       # workflow cancel할 시간 벌기 위해 추가한 step
-      # - name: Sleep for 20 seconds
-      #   run: |
-      #     sleep 20
+      - name: Sleep for 20 seconds
+        run: |
+          sleep 20
       
       - name: Failing step
         run: |
